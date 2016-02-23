@@ -15,6 +15,8 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @task.list_id = params[:list_id]
+    # le form est rempli avec les param deja presents
   end
 
   # GET /tasks/1/edit
@@ -24,7 +26,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+@task = Task.new(task_params)
 
     respond_to do |format|
       if @task.save
